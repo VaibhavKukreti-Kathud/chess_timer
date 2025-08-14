@@ -1,4 +1,4 @@
-Chessque – Professional Chess Clock & Timer for Every Chess Player
+<h1>Chessque – A chess clock & timer app</h1>
 
 Looking for a chess clock that’s simple, accurate, and easy to use? Chessque is the ultimate chess timer app designed for players of all levels — from casual chess lovers to serious tournament competitors. Whether you’re playing blitz chess, rapid chess, bullet games, or classical formats, Chessque gives you full control over your match time.
 
