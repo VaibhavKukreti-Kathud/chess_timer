@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 /// A reusable overlay that provides a blurred, dimmed background
 /// with fade in/out animations. Matches the behavior used in the
@@ -19,9 +20,9 @@ class AnimatedBlurOverlay extends StatelessWidget {
     required this.child,
     this.onTap,
     this.blurSigma = 5.0,
-    this.duration = const Duration(milliseconds: 500),
+    this.duration = AppDurations.medium,
     this.curve = Curves.easeOutCirc,
-    this.backgroundColor = const Color(0xCC000000), // ~black 80%
+    this.backgroundColor = AppColors.overlayScrim, // ~black 80%
   });
 
   @override
@@ -43,7 +44,7 @@ class AnimatedBlurOverlay extends StatelessWidget {
               curve: curve,
               decoration: BoxDecoration(
                 color: isVisible ? backgroundColor : Colors.transparent,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadii.bg),
               ),
               child: AnimatedOpacity(
                 duration: duration,

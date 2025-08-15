@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
 class FixedWidthTime extends StatefulWidget {
   final Duration elapsed;
@@ -40,7 +41,6 @@ class _FixedWidthTimeState extends State<FixedWidthTime>
     } else if (!widget.gameIsOver || !widget.isLoser) {}
   }
 
-
   @override
   Widget build(BuildContext context) {
     final Duration actualDuration = widget.gameDuration - widget.elapsed;
@@ -52,15 +52,15 @@ class _FixedWidthTimeState extends State<FixedWidthTime>
         displayDuration.inMinutes.remainder(60).toString().padLeft(2, '0');
     final seconds =
         displayDuration.inSeconds.remainder(60).toString().padLeft(2, '0');
-    final milliseconds = displayDuration.inMilliseconds
-        .remainder(1000)
-        .toString()
-        .padLeft(3, '0')
-        .substring(0, 2);
+    // final milliseconds = displayDuration.inMilliseconds
+    //     .remainder(1000)
+    //     .toString()
+    //     .padLeft(3, '0')
+    //     .substring(0, 2);
 
     // Use white text color if this player is the loser
     final textStyle = widget.isLoser
-        ? widget.style.copyWith(color: Colors.white)
+        ? widget.style.copyWith(color: AppColors.white)
         : widget.style;
 
     return Row(

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:solar_icons/solar_icons.dart';
 import '../screens/time_picker_screen.dart';
 import '../services/game_provider.dart';
+import '../theme/app_theme.dart';
 
 class ChessControlsWidget extends StatefulWidget {
   const ChessControlsWidget({super.key});
@@ -17,7 +18,8 @@ class ChessControlsWidget extends StatefulWidget {
 }
 
 class _ChessControlsWidgetState extends State<ChessControlsWidget> {
-  final BorderRadiusGeometry radius = BorderRadiusGeometry.circular(40);
+  final BorderRadiusGeometry radius =
+      BorderRadiusGeometry.circular(AppRadii.controls);
 
   // A flag to check if the controls have not been interacted with for some time
   bool inactive = false;
@@ -26,7 +28,7 @@ class _ChessControlsWidgetState extends State<ChessControlsWidget> {
   int inactivityThreshold = 4; // seconds
   bool _lastGameRunningState = false; // Track previous game state
 
-  Duration animationDuration = const Duration(milliseconds: 800);
+  Duration animationDuration = AppDurations.slow;
 
   Timer? _inactiveTimer;
 
@@ -134,7 +136,7 @@ class _ChessControlsWidgetState extends State<ChessControlsWidget> {
                 curve: Curves.easeInOutCubic,
                 padding: const EdgeInsets.all(6),
                 decoration: ShapeDecoration(
-                  color: Colors.white,
+                  color: AppColors.surface,
                   shape: RoundedSuperellipseBorder(borderRadius: radius),
                 ),
                 child: AnimatedSize(
@@ -182,7 +184,7 @@ class _ChessControlsWidgetState extends State<ChessControlsWidget> {
         gameProvider.resetChessClock();
         _stopInactiveTimer(); // Stop timer when reset from game over
       },
-      borderRadius: BorderRadius.circular(40),
+      borderRadius: BorderRadius.circular(AppRadii.controls),
       child: const Padding(
         padding: EdgeInsets.fromLTRB(10, 9, 10, 11),
         child: Icon(
@@ -214,8 +216,8 @@ class _ChessControlsWidgetState extends State<ChessControlsWidget> {
       width: 8,
       height: 8,
       decoration: BoxDecoration(
-        color: Colors.grey.shade500,
-        borderRadius: BorderRadius.circular(10),
+        color: AppColors.gray500,
+        borderRadius: BorderRadius.circular(AppRadii.dot),
       ),
     ).fadeIn(start: 0.8, end: 0.4).oneShot(
           duration: animationDuration,

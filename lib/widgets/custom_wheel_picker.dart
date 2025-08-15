@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../theme/app_theme.dart';
 
 class CustomWheelPicker extends StatelessWidget {
   final String label;
@@ -50,7 +51,7 @@ class CustomWheelPicker extends StatelessWidget {
                   //   borderRadius: BorderRadius.circular(8),
                   // ),
                   decoration: ShapeDecoration(
-                    color: Colors.white.withValues(alpha: 0.12),
+                    color: AppColors.white.withValues(alpha: 0.12),
                     shape: RoundedSuperellipseBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -69,7 +70,7 @@ class CustomWheelPicker extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: AppColors.white,
                       ),
                     ),
                   ),
